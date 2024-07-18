@@ -1,0 +1,12 @@
+
+	java:S112'"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ8ΰ¨η‡2J$666a7ee6-8974-49b0-bd83-ab102e3d64c4
+¤
+java:S3008"\Rename this field "DRIVER_CLASS_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ξ†ύÿÿÿÿ8τ¨η‡2J$df70fa81-99fc-445c-ad10-d2b5980726d5
+}
+java:S1118":Add a private constructor to hide the implicit public one.(μ8ψ¨η‡2J$85325f95-9b10-4a63-bb67-f91bd9e973db
+l
+java:S2115")Add password protection to this database.(δΰ‘…8ώ¨η‡2J$855a8304-419c-4eb8-aea5-52bdffabf375
+b
+java:S6905!"Don't use the query "SELECT *".(’„φ‚8…©η‡2J$233853d2-508d-4978-9823-d5ae4c6d847c
+r
+java:S1068"*Remove this unused "logger" private field.(ο†υψÿÿÿÿ8©η‡2J$1a57aafe-97fc-4607-bcab-093bca3e0bb9

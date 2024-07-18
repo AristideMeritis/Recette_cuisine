@@ -1,0 +1,22 @@
+
+	java:S112/"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ııå†Œ2J$55acebff-a36c-4853-9c64-a1db19666088
+	java:S1124"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ııå†Œ2J$5a7d03fd-ea74-4ff6-8aea-f513ee85de76
+w
+java:S3740
+"/Provide the parametrized type for this generic.(µáæûÿÿÿÿ8şıå†Œ2J$18853715-6360-4586-a4eb-0702084bf6dc
+…
+java:S11634"=Refactor this code to not throw exceptions in finally blocks.(Ò‚Òéüÿÿÿÿ8‚şå†Œ2J$5fb0b0cd-e51d-41a6-955b-3e1186c1387e
+|
+java:S11434"4Remove this throw statement from this finally block.(Ò‚Òéüÿÿÿÿ8„şå†Œ2J$570f5cea-9bd1-441f-9044-e9bd6206bd52
+Ä
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(½¨ôî8‘şå†Œ2J$756ce54e-684f-41e5-a968-992a5b5431b1
+É
+java:S1186="€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(×ÇÃ‡şÿÿÿÿ8’şå†Œ2J$6acf67db-6eb8-405c-bcfd-1d91adbab1e4
+É
+java:S1186B"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…áãøÿÿÿÿ8’şå†Œ2J$ee82cb5b-b514-435c-a5b7-65bae571de1b
+n
+java:S1168"+Return an empty collection instead of null.(¥¹ï8™şå†Œ2J$998e73c1-17a8-426c-aa47-b07f31fb2856
+j
+java:S1125&"'Remove the unnecessary boolean literal.(ÜÄÀÖ8¥şå†Œ2J$171bdc82-3d65-4983-a485-1c5d0c3561d6
+m	java:S106'"+Replace this use of System.out by a logger.(üÅŸÖ8¦şå†Œ2J$1ac6aa1f-52d9-40da-a2d1-76219cc893f6
+r	java:S106)"+Replace this use of System.out by a logger.(•‰½Úúÿÿÿÿ8§şå†Œ2J$ec59c154-9d0f-4fa0-9471-087c7dc24278
