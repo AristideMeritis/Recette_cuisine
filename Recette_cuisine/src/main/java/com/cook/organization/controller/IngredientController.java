@@ -15,7 +15,7 @@ public class IngredientController {
     private IngredientService ingredientService;
 
     @PostMapping("/add")
-    public void addTweet() {
+    public void addIngredient() {
         ingredientService.addIngredient();
     }
 
