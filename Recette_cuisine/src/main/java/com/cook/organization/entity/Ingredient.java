@@ -1,20 +1,36 @@
 package com.cook.organization.entity;
 
-import java.util.UUID;
+import jakarta.persistence.*;
 
+import java.util.UUID;
+@Entity
 public class Ingredient
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "ingredient_id", nullable = false)
+    private Long id;
 
-    private UUID id;
     private String nom;
     private int quantite;
 
-    public Ingredient( String nom, int quantite)
+    public Ingredient() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Ingredient(String nom, int quantite)
     {
-        this.id = UUID.randomUUID();
         this.nom =  nom;
         this.quantite = quantite;
     }
+
     public String getNom() {
         return nom;
     }

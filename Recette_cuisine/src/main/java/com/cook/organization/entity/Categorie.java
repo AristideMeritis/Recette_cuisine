@@ -1,20 +1,21 @@
 package com.cook.organization.entity;
 
-public class Categorie {
+import jakarta.persistence.*;
 
-    private int id;
+@Entity
+public class Categorie {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "categorie_id", nullable = false)
+    private Long id;
+    @Column(name="nom", length = 255, nullable = false, unique = false)
     private String nom;
 
-    public Categorie(int id, String nom) {
-        this.id = id;
-        this.nom = nom;
-    }
-
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
