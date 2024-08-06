@@ -4,18 +4,18 @@ import jakarta.persistence.*;
 
 import java.util.UUID;
 @Entity
+@Table(name = "ingredient")
 public class Ingredient
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ingredient_id", nullable = false)
     private Long id;
 
+    @Column(name = "nom", length = 40, nullable = false)
     private String nom;
+    @Column(name = "quantite", length =40, nullable = false )
     private int quantite;
-
-    public Ingredient() {
-    }
 
     public Long getId() {
         return id;
@@ -23,12 +23,6 @@ public class Ingredient
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Ingredient(String nom, int quantite)
-    {
-        this.nom =  nom;
-        this.quantite = quantite;
     }
 
     public String getNom() {
@@ -47,9 +41,6 @@ public class Ingredient
         this.quantite = quantite;
     }
 
-    public String getID(){
-        return this.id.toString();
-    }
 
 
 }

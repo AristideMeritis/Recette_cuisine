@@ -3,11 +3,12 @@ package com.cook.organization.repository;
 
 import com.cook.organization.entity.Recette;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-
-public interface RecetteRepository  extends CrudRepository<Recette, Long> {
+@Repository
+public interface IRecetteRepository  extends CrudRepository<Recette, Long> {
     @Override
     Optional<Recette> findById(Long aLong);
 

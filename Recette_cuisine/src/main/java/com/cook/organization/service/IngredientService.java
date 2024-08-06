@@ -1,27 +1,34 @@
 package com.cook.organization.service;
 
 import com.cook.organization.entity.Ingredient;
+import com.cook.organization.repository.IIngredientRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class IngredientService {
-
+public class IngredientService   {
+    @Autowired
+    private IIngredientRepository ingredientRepository;
     private List<Ingredient> ingredientList = new ArrayList<>();
 
-    public void addIngredient(){
-        Ingredient ingredTomate = new Ingredient("Tomate", 3);
-        Ingredient ingredOignons = new Ingredient("Oignons", 6);
-        ingredientList.add(ingredTomate);
-        ingredientList.add(ingredOignons);
+    public String addIngredient(IngredientRecord ingredientRec){
+        Ingredient ingredient = new Ingredient();
+        ingredient.setNom(ingredientRec.nom());
+        ingredient.setQuantite(ingredient.getQuantite());
+        ingredientRepository.save(ingredient);
+        return "ADDED";
+
     }
 
-    public List<Ingredient> getIngredients()
+    public Iterable<Ingredient> getIngredients()
     {
-        return ingredientList;
+        return  ingredientRepository.findAll();
     }
+
 
 
 

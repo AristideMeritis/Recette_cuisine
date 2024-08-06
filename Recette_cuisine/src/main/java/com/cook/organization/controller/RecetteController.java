@@ -3,12 +3,10 @@ package com.cook.organization.controller;
 import com.cook.organization.entity.Categorie;
 import com.cook.organization.entity.Ingredient;
 import com.cook.organization.entity.Recette;
-import com.cook.organization.exception.RecetteIdMismatchException;
-import com.cook.organization.exception.RecetteNotFoundException;
-import com.cook.organization.repository.RecetteRepository;
 import com.cook.organization.service.RecetteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,8 +27,7 @@ public class RecetteController {
 
     ) {
     }
-
-    @GetMapping("/recette/getALL")
+    @GetMapping("/recette/getallRecette")
     public Iterable findAll() {
         return recetteService.findAll();
     }
@@ -40,13 +37,13 @@ public class RecetteController {
         return recetteService.findByTitre(recetteTitre);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/recette/recette/{id}")
     public Recette findById(@PathVariable Long id) {
         return recetteService.findById(id);
 
     }
 
-    @PostMapping
+    @PostMapping(path="/recette/addRecette", consumes={MediaType.APPLICATION_JSON_UTF8_VALUE})
     @ResponseStatus(HttpStatus.CREATED)
     public Recette create(@RequestBody NewRecetteRequest recetteRequest) {
         Recette recette = new Recette();
@@ -57,12 +54,12 @@ public class RecetteController {
         return recetteService.save(recette);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/recette/deleteRecette/{id}")
     public void delete(@PathVariable Long id) {
         recetteService.deleteById(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/recette/putRecette/{id}")
     public Recette updateBook(@RequestBody Recette recette, @PathVariable Long id) {
         return recetteService.updateRecetteById(recette, id);
     }

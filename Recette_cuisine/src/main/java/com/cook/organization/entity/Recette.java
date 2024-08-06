@@ -71,9 +71,6 @@ public class Recette {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getAuteur() {
         return auteur;
