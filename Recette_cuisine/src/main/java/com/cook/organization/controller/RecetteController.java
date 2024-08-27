@@ -2,6 +2,7 @@ package com.cook.organization.controller;
 
 import com.cook.organization.entity.Categorie;
 import com.cook.organization.entity.Ingredient;
+import com.cook.organization.entity.NewRecetteRequest;
 import com.cook.organization.entity.Recette;
 import com.cook.organization.service.RecetteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,16 +18,7 @@ public class RecetteController {
     @Autowired
     private RecetteService recetteService;
 
-    record NewRecetteRequest(
-            String titre,
-            List<String> instructions,
-            String description,
-            String auteur,
-            Categorie categorie,
-            List<Ingredient> ingredients
 
-    ) {
-    }
     @GetMapping("/recette/getallRecette")
     public Iterable findAll() {
         return recetteService.findAll();
@@ -51,6 +43,8 @@ public class RecetteController {
         recette.setDescription(recetteRequest.description());
         recette.setInstructions(recetteRequest.instructions());
         recette.setIngredients(recetteRequest.ingredients());
+        recette.setCategorie(recetteRequest.categorie());
+        recette.setTitre(recetteRequest.titre());
         return recetteService.save(recette);
     }
 

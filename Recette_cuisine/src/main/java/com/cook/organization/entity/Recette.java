@@ -1,8 +1,13 @@
 package com.cook.organization.entity;
 
 import jakarta.persistence.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -18,14 +23,21 @@ public class Recette {
     private String description;
     @Column(name="instructions", length = 500, nullable = false, unique = false)
     private  List<String> instructions;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "categorie_id", referencedColumnName = "categorie_id")
+
+    @Column(name = "categorie", nullable = false)
     private Categorie categorie;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "recette_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ingredient_id")
     private List<Ingredient> ingredients;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "commentaire_id", nullable = false)
+    private List<Commentaire> commentaires = new ArrayList<>();
     @Column(name="auteur", length = 50, nullable = false, unique = false)
     private String auteur;
+
+    @Transient
+    private URI locationURI;
 
     public String getTitre() {
         return titre;
@@ -78,6 +90,35 @@ public class Recette {
 
     public void setAuteur(String auteur) {
         this.auteur = auteur;
+    }
+
+    public List<Commentaire> getCommentaires() {
+        return commentaires;
+    }
+
+    public void setCommentaires(List<Commentaire> commentaires) {
+        this.commentaires = commentaires;
+    }
+    public void validate() throws IllegalStateException {
+        if (ingredients.size() == 0) {
+            throw new IllegalStateException(
+                    "You need at least one ingredient for your recipe!");
+        } else if (instructions.size() == 0) {
+            throw new IllegalStateException(
+                    "You need at least one step for your recipe!");
+        }
+    }
+
+    public void generateLocationURI() {
+        try {
+            locationURI = new URI(
+                    ServletUriComponentsBuilder.fromCurrentContextPath()
+                            .path("/recette/")
+                            .path(String.valueOf(id))
+                            .toUriString());
+        } catch (URISyntaxException e) {
+            // exception should stop here.
+        }
     }
 
 }

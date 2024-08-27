@@ -6,6 +6,7 @@ import com.cook.organization.exception.RecetteNotFoundException;
 import com.cook.organization.repository.IRecetteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -24,22 +25,32 @@ public class RecetteService {
         return recetteRepository.findByTitre(recetteTitre);
     }
 
-    public Recette findById(Long id) {
-        return recetteRepository.findById(id)
-                .orElseThrow(RecetteNotFoundException::new);
+    public Recette findById(Long id)  {
+        try {
+            return recetteRepository.findById(id)
+                    .orElseThrow(RecetteNotFoundException::new);
+        } catch (RecetteNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
     public Recette save(Recette recette) {
+        recette.validate();
         return recetteRepository.save(recette);
     }
 
 
     public void deleteById(Long id) {
-        recetteRepository.findById(id)
-                .orElseThrow(RecetteNotFoundException::new);
+        try {
+            recetteRepository.findById(id)
+                    .orElseThrow(RecetteNotFoundException::new);
+        } catch (RecetteNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         recetteRepository.deleteById(id);
     }
+
 
 
     public Recette updateRecetteById(Recette recette, Long id) {
@@ -50,8 +61,12 @@ public class RecetteService {
                 throw new RuntimeException(e);
             }
         }
-        recetteRepository.findById(id)
-                .orElseThrow(RecetteNotFoundException::new);
+        try {
+            recetteRepository.findById(id)
+                    .orElseThrow(RecetteNotFoundException::new);
+        } catch (RecetteNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         return recetteRepository.save(recette);
     }
 
